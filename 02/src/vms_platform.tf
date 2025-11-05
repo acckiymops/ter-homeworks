@@ -1,20 +1,5 @@
 ###cloud vars
 
-/*
-variable "vm_db_cloud_id" {
-  type        = string
-  description = "https://cloud.yandex.ru/docs/resource-manager/operations/cloud/get-id"
-  #  default     = "b1g8urmvu327cc7r2ll9"
-}
-
-variable "vm_db_folder_id" {
-  type        = string
-  description = "https://cloud.yandex.ru/docs/resource-manager/operations/folder/get-id"
-  #  default     = "b1gehc6pt4n63rt6c6hj"
-}
-*/
-
-variable "vm_db_default_zone" {
   type        = string
   default     = "ru-central1-b"
   description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
