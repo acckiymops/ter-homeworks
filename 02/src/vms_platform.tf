@@ -1,5 +1,6 @@
 ###cloud vars
 
+variable "vm_db_default_zone" {
   type        = string
   default     = "ru-central1-b"
   description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
