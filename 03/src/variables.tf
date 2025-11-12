@@ -1,9 +1,3 @@
-###cloud vars
-#variable "token" {
-#  type        = string
-#  description = "OAuth-token; https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token"
-#}
-
 variable "cloud_id" {
   type        = string
   description = "https://cloud.yandex.ru/docs/resource-manager/operations/cloud/get-id"
@@ -31,7 +25,7 @@ variable "vpc_name" {
   description = "VPC network&subnet name"
 }
 
-variable "vm_web_image_id" {
+variable "vm_image_id" {
   type    = string
   default = "ubuntu-2404-lts"
 }
@@ -46,20 +40,3 @@ variable "vm_web_ssh_root_key" {
   }
 }
 
-variable "vm_web_resources" {
-  type = map(object({
-    cores         = number
-    memory        = number
-    core_fraction = number
-  }))
-  default = {
-    web = {
-      cores         = 2
-      memory        = 2
-      core_fraction = 20
-    },
-  }
-}
-
-
-#########################################################################

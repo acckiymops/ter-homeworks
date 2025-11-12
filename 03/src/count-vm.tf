@@ -1,5 +1,20 @@
 data "yandex_compute_image" "ubuntu" {
-  family = var.vm_web_image_id
+  family = var.vm_image_id
+}
+
+variable "vm_web_resources" {
+  type = map(object({
+    cores         = number
+    memory        = number
+    core_fraction = number
+  }))
+  default = {
+    web = {
+      cores         = 2
+      memory        = 2
+      core_fraction = 20
+    }
+  }
 }
 
 resource "yandex_compute_instance" "web" {
@@ -7,6 +22,7 @@ resource "yandex_compute_instance" "web" {
   name        = "web-${count.index + 1}"
   platform_id = "standard-v3"
   zone        = var.default_zone
+  depends_on  = [yandex_compute_instance.db]
   resources {
     cores         = var.vm_web_resources.web.cores
     memory        = var.vm_web_resources.web.memory
