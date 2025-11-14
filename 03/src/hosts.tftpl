@@ -1,0 +1,27 @@
+%{ if web != null ~}
+
+[web]
+%{~ for i in web ~}
+
+${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]} fqdn=${i["fqdn"]}
+%{~ endfor ~}
+%{~ endif ~}
+
+%{ if db != null ~}
+
+[db]
+%{~ for i in db ~}
+
+${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]} fqdn=${i["fqdn"]}
+%{~ endfor ~}
+%{~ endif ~}
+
+%{ if vm_storage != null ~}
+
+[vm_storage]
+%{~ for i in vm_storage ~}
+
+${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]} fqdn=${i["fqdn"]}
+%{~ endfor ~}
+%{~ endif ~}
+
